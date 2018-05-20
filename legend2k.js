@@ -232,30 +232,4 @@ client.on('message', function(message) {
 });
 
 
-
-
-
- 
-   client.on('ready', function(){
-        client.user.setStatus("dnd");
-        var ms = 100000 ;
-        var setGame = [`1play`];
-        var i = -1;
-        var j = 0;
-        setInterval(function (){
-            if( i == -1 ){
-                j = 1;
-            }
-            if( i == (setGame.length)-1 ){
-                j = -1;
-            }
-            i = i+j;
-            client.user.setGame(setGame[i],`http://www.twitch.tv/r3b`);
-        }, ms);100000
-    
-   });
-    
-   });
-
-
 client.login(process.env.BOT_TOKEN);
