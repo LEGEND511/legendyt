@@ -7,7 +7,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
  
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '!';
+const prefix = '2';
 const discord_token = process.env.BOT_TOKEN;
 client.login(discord_token);
 client.on('ready', function() {
@@ -237,7 +237,7 @@ client.on('message', message => {
 
     let args = message.content.split(' ').slice(1).join(' ');
      if(!message.channel.guild) return;
-if(message.content.split(' ')[0] == '!bc') {
+if(message.content.split(' ')[0] == '2bc') {
          message.react("✔️")
           let embed = new Discord.RichEmbed()
     .setColor("#FF00FF")
@@ -259,7 +259,7 @@ if(message.content.split(' ')[0] == '!bc') {
   client.on('ready', function(){
         client.user.setStatus("dnd");
         var ms = 100000 ;
-        var setGame = [`-help`];
+        var setGame = [`2help`];
         var i = -1;
         var j = 0;
         setInterval(function (){
@@ -272,6 +272,8 @@ if(message.content.split(' ')[0] == '!bc') {
             i = i+j;
             client.user.setGame(setGame[i],`http://www.twitch.tv/r3b`);
         }, ms);100000
+    
+   });
     
    });
 
