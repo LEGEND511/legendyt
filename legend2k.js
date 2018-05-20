@@ -7,7 +7,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
  
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '1';
+const prefix = '!';
 const discord_token = process.env.BOT_TOKEN;
 client.login(discord_token);
 client.on('ready', function() {
@@ -15,160 +15,44 @@ client.on('ready', function() {
 });
 
 
+const fs = require('fs')
+let points = JSON.parse(fs.readFileSync('./PTS.json', 'utf8'));
+var prefix = "!";
+
+
 client.on('message', message => {
-    
-   if (message.content.startsWith("1id")) {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+if (message.content.startsWith(prefix + 'عواصم')) { 
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
 
-if(!message.channel.guild) return;
+const type = require('./3wasem/3wasem.json'); 
+const item = type[Math.floor(Math.random() * type.length)]; 
+const filter = response => { 
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**لديك 15 ثانية لتوجد عاصمة **').then(msg => {
+    let embed = new Discord.RichEmbed()
+    .setColor('#000000')
+    .setFooter("عواصم  | Super Bot", 'https://cdn.discordapp.com/avatars/439427357175185408/3eb163b7656922ebc9e90653d50231f1.png?size=2048')
+    .setDescription(`**قم بكتابة عاصمة : ${item.type}**`) // ${item.type} = السؤال
 
-let args = message.content.split(' ').slice(1).join(' ');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        let defineduser = '';
-        if (!args[1]) { // If they didn't define anyone, set it to their own.
-            defineduser = message.author;
-        } else { // Run this if they did define someone...
-            let firstMentioned = message.mentions.users.first();
-            defineduser = firstMentioned;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-const w = ['./pf.png'];
-var Canvas = require('canvas')
-var jimp = require('jimp')
-
-         const millis = new Date().getTime() - defineduser.createdAt.getTime();
-const now = new Date();
-dateFormat(now, 'dddd, mmmm dS, yyyy');
-const stats2 = ['online', 'Low', 'Medium', 'Insane'];
-const days = millis / 1000 / 60 / 60 / 24;
-          dateFormat(now, 'dddd, mmmm dS, yyyy');
-              let time = `${dateFormat(defineduser.createdAt)}`
-
-
-
-        let Image = Canvas.Image,
-            canvas = new Canvas(300, 300),
-            ctx = canvas.getContext('2d');
-        ctx.patternQuality = 'bilinear';
-        ctx.filter = 'bilinear';
-        ctx.antialias = 'subpixel';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-        ctx.shadowOffsetY = 2;
-        ctx.shadowBlur = 2;
-        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 300, 300);
-
-})
-   var mentionned = message.mentions.users.first();
-
-    var client;
-      if(mentionned){
-          var client = mentionned;
-      } else {
-          var client = message.author;
-          
-      }
-
-
-                let url = defineduser.displayAvatarURL.endsWith(".webp") ? defineduser.displayAvatarURL.slice(20, 20) + ".png" : defineduser.displayAvatarURL;
-                jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                        if (err) return console.log(err);
-
-                        let Avatar = Canvas.Image;
-                        let ava = new Avatar;
-                        ava.src = buf;
-                        ctx.drawImage(ava, 114, 10, 70, 70);
-                                              var time2;
-      if(mentionned){
-          var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
-      } else {
-          var time2 = `${dateFormat(message.member.joinedAt)}`;
-          
-      }  
-                           var status;
-    if (defineduser.presence.status === 'online') {
-        status = 'اون لاين';
-    } else if (defineduser.presence.status === 'dnd') {
-        status = 'مشغول';
-    } else if (defineduser.presence.status === 'idle') {
-        status = 'خمول';
-    } else if (defineduser.presence.status === 'offline') {
-        status = 'اوف لاين';
-    }
-    
-                        ctx.font = '20px Arial Bold';
-                        ctx.fontSize = '29px';
-                        ctx.fillStyle = "#00ff00";
-                        ctx.textAlign = "center";
-                        ctx.fillText(status, 150, 272);
-                        
-    
-                        
-                        ctx.font = '13px Arial Bold';
-                        ctx.fontSize = '10px';
-                        ctx.fillStyle = "#00fff0";
-                        ctx.textAlign = "center";
-                        ctx.fillText(`${defineduser.username}`, 55, 181);
-
-                        var time2;
-      if(mentionned){
-          var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
-      } else {
-          var time2 = `${dateFormat(message.member.joinedAt)}`;
-          
-      }
-           
-                                                //wl
-                        ctx.font = '10px Arial Bold';
-                        ctx.fontSize = '5px';
-                        ctx.fillStyle = "#00fff0";
-                        ctx.textAlign = "center";
-                        ctx.fillText(time2, 224, 180);
-                        
-message.channel.sendFile(canvas.toBuffer())
-
-            // when someone calls this command, it also adds 1 earlier at the same, but since this is fetching the previous value, we need to add 1 to the answer, even thought it will be updated
-            // seconds after this.
+    msg.channel.sendEmbed(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ **لقد قمت بكتابة العاصمة بالوقت المناسب**`);
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let won = collected.first().author; 
+            points[won.id].points++;
+          })
+          .catch(collected => { 
+            message.channel.send(`:x: **لم يقم أحد بكتابة العاصمة بالوقت المناسب**`);
+            console.log(`[Typing] Error: No one type the word.`);
+          })
         })
     })
-
-
-
-
 }
-
-})
-
+});
 
 client.login(process.env.BOT_TOKEN);
