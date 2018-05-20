@@ -259,7 +259,7 @@ if(message.content.split(' ')[0] == '2bc') {
   client.on('ready', function(){
         client.user.setStatus("dnd");
         var ms = 100000 ;
-        var setGame = [`2help`];
+        var setGame = [`2play`];
         var i = -1;
         var j = 0;
         setInterval(function (){
