@@ -1,15 +1,18 @@
 const Discord = require('discord.js');
-const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
-const { PREFIX, GOOGLE_API_KEY } = require('./config');
-const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-
-const youtube = new YouTube(GOOGLE_API_KEY);
-
-const queue = new Map();
-
-
+const request = require('request');
+const fs = require('fs');
+const getYoutubeID = require('get-youtube-id');
+const fetchVideoInfo = require('youtube-info');
+ 
+const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+const prefix = '1';
+const discord_token = process.env.BOT_TOKEN;
+client.login(discord_token);
+client.on('ready', function() {
+    console.log(`i am ready ${client.user.username}`);
+});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
