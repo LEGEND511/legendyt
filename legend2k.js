@@ -7,7 +7,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
  
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '2';
+const prefix = '1';
 const discord_token = process.env.BOT_TOKEN;
 client.login(discord_token);
 client.on('ready', function() {
@@ -256,10 +256,11 @@ if(message.content.split(' ')[0] == '2bc') {
 })
 
 
-  client.on('ready', function(){
+ 
+   client.on('ready', function(){
         client.user.setStatus("dnd");
         var ms = 100000 ;
-        var setGame = [`2play`];
+        var setGame = [`1play`];
         var i = -1;
         var j = 0;
         setInterval(function (){
