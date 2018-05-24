@@ -5,7 +5,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
   client.user.setGame(` By legend #4187 .`,'https://www.twitch.tv/King');
   console.log('---------------');
-  console.log('King-Bot Is Online')
+  console.log('MAFIA-Bot Is Online')
   console.log('---------------')
 });
 client.on("message", message => {
@@ -14,12 +14,13 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-╔╗╔═╦══╦═╗─╔╦═══╗──╔══╗╔═══╦════╗
-║║║╔╩╣╠╣║╚╗║║╔═╗║──║╔╗║║╔═╗║╔╗╔╗║
-║╚╝╝─║║║╔╗╚╝║║─╚╝──║╚╝╚╣║─║╠╝║║╚╝
-║╔╗║─║║║║╚╗║║║╔═╦══╣╔═╗║║─║║─║║
-║║║╚╦╣╠╣║─║║║╚╩═╠══╣╚═╝║╚═╝║─║║
-╚╝╚═╩══╩╝─╚═╩═══╝──╚═══╩═══╝─╚╝
+╔═╗╔═╦═══╦═══╦══╦═══╗──╔══╗───╔╗
+║║╚╝║║╔═╗║╔══╩╣╠╣╔═╗║──║╔╗║──╔╝╚╗
+║╔╗╔╗║║─║║╚══╗║║║║─║║──║╚╝╚╦═╩╗╔╝
+║║║║║║╚═╝║╔══╝║║║╚═╝╠══╣╔═╗║╔╗║║
+║║║║║║╔═╗║║──╔╣╠╣╔═╗╠══╣╚═╝║╚╝║╚╗
+╚╝╚╝╚╩╝─╚╩╝──╚══╩╝─╚╝──╚═══╩══╩═╝
+
 ***__وصف عن البوت__***
 **
 ....
