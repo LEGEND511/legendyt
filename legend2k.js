@@ -589,6 +589,7 @@ msg.delete();
 });
    
 
+
     client.on("message", message => {
         const prefix = "$"
                    
