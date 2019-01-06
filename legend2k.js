@@ -3,7 +3,7 @@ const sql = require("sqlite");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.on('ready', () => {
-  client.user.setGame(` By legend #4187 .`,'https://www.twitch.tv/King');
+  client.user.setGame(` By- SB |LEGEND_YT#9736  .`,'https://www.twitch.tv/King');
   console.log('---------------');
   console.log('MAFIA-Bot Is Online')
   console.log('---------------')
