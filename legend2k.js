@@ -5,7 +5,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
   client.user.setGame(` By- SB |LEGEND_YT#9736  .`,'https://www.twitch.tv/King');
   console.log('---------------');
-  console.log('MAFIA-Bot Is Online')
+  console.log('PUBG-Bot Is Online')
   console.log('---------------')
 });
 client.on("message", message => {
@@ -14,12 +14,6 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-╔═╗╔═╦═══╦═══╦══╦═══╗──╔══╗───╔╗
-║║╚╝║║╔═╗║╔══╩╣╠╣╔═╗║──║╔╗║──╔╝╚╗
-║╔╗╔╗║║─║║╚══╗║║║║─║║──║╚╝╚╦═╩╗╔╝
-║║║║║║╚═╝║╔══╝║║║╚═╝╠══╣╔═╗║╔╗║║
-║║║║║║╔═╗║║──╔╣╠╣╔═╗╠══╣╚═╝║╚╝║╚╗
-╚╝╚╝╚╩╝─╚╩╝──╚══╩╝─╚╝──╚═══╩══╩═╝
 
 ***__وصف عن البوت__***
 **
@@ -91,7 +85,7 @@ client.on('message', message => {
 if (message.content === '_help') {
          let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)    
-      .addField("** مبرمج البوت :wrench: **","**@ Legend_YT#4187 **")
+      .addField("** مبرمج البوت :wrench: **","**@- SB |LEGEND_YT#9736 **")
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
